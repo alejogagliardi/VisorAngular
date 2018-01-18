@@ -8,7 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="7.3.4" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="2.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +24,35 @@
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
     <Content Remove="ClientApp\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\app\auth.guard.ts" />
+    <None Remove="ClientApp\app\components\LoginNavItem.component.ts" />
+    <None Remove="ClientApp\app\directives\email.validator.directive.ts" />
+    <None Remove="ClientApp\app\directives\focus.directive.ts" />
+    <None Remove="ClientApp\app\models\credentials.interface.ts" />
+    <None Remove="ClientApp\app\models\user.registration.interface.ts" />
+    <None Remove="ClientApp\app\components\account\login-form\login-form.component.ts" />
+    <None Remove="ClientApp\app\components\account\registration-form\registration-form.component.ts" />
+    <None Remove="ClientApp\app\providers\authenticate-xhr-backend.ts" />
+    <None Remove="ClientApp\app\services\base.service.ts" />
+    <None Remove="ClientApp\app\services\user.service.ts" />
+    <None Remove="ClientApp\app\utils\config.service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\auth.guard.ts" />
+    <TypeScriptCompile Include="ClientApp\app\directives\email.validator.directive.ts" />
+    <TypeScriptCompile Include="ClientApp\app\directives\focus.directive.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\credentials.interface.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\user.registration.interface.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\account\login-form\login-form.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\account\registration-form\registration-form.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\providers\authenticate-xhr-backend.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\base.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\user.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\utils\config.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
@@ -49,5 +84,7 @@
       </ResolvedFileToPublish>
     </ItemGroup>
   </Target>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JSONSchema="http://json.schemastore.org/compilerconfig" /></VisualStudio></ProjectExtensions>
 
 </Project>

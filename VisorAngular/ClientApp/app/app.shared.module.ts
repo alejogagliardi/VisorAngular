@@ -10,13 +10,22 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 
+/* Account Imports */
+import { RegistrationFormComponent } from './components/account/registration-form/registration-form.component';
+import { LoginFormComponent } from './components/account/login-form/login-form.component';
+import { AuthGuard } from './auth.guard';
+
+
+
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        LoginFormComponent,
+        RegistrationFormComponent
     ],
     imports: [
         CommonModule,
@@ -27,7 +36,10 @@ import { CounterComponent } from './components/counter/counter.component';
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'login', component: LoginFormComponent },
+            { path: 'register', component: RegistrationFormComponent, canActivate: [AuthGuard] },
             { path: '**', redirectTo: 'home' }
+            
         ])
     ]
 })
