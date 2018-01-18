@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 
 import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'nav-menu',
@@ -13,11 +14,13 @@ export class NavMenuComponent {
     status: boolean;
     subscription: Subscription;
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService, private router: Router) {
     }
 
     logout() {
         this.userService.logout();
+        //TODO: verificar si se deslogueo correctamente
+        this.router.navigate(['/home']);
     }
 
     ngOnInit() {
