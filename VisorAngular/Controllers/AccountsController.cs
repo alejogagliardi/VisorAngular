@@ -30,8 +30,9 @@ namespace VisorAngular.Controllers
 
         [HttpGet("[action]")]
         public IActionResult Listar() {
-            var data = new { Name = "Alex", LastName = "DeLarge" };
 
+            //var data =  new[] { new { FirstName = "Alex", LastName = "DeLarge" }, new { FirstName = "Alex", LastName = "DeLarge" } };
+            var data = _appDbContext.Users;
             return Json(data);
         }
 

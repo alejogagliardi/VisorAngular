@@ -2,7 +2,7 @@
 import { Router } from '@angular/router';
 
 import { UserRegistration } from '../../../models/user.registration.interface';
-import { UserService } from '../../../services/user.service';
+import { LoginService } from '../../../services/login.service';
 
 @Component({
     selector: 'app-registration-form',
@@ -15,7 +15,7 @@ export class RegistrationFormComponent implements OnInit {
     isRequesting: boolean;
     submitted: boolean = false;
 
-    constructor(private userService: UserService, private router: Router) { }
+    constructor(private loginService: LoginService, private router: Router) { }
 
     ngOnInit() {
     }
@@ -25,7 +25,7 @@ export class RegistrationFormComponent implements OnInit {
         this.isRequesting = true;
         this.errors = '';
         if (valid) {
-            this.userService.register(value.email, value.password, value.firstName, value.lastName, value.location)
+            this.loginService.register(value.email, value.password, value.firstName, value.lastName, value.location)
                 .finally(() => this.isRequesting = false)
                 .subscribe(
                 result => {

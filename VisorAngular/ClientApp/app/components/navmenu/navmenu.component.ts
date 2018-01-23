@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { UserService } from '../../services/user.service';
+import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,17 +14,17 @@ export class NavMenuComponent {
     status: boolean;
     subscription: Subscription;
 
-    constructor(private userService: UserService, private router: Router) {
+    constructor(private loginService: LoginService, private router: Router) {
     }
 
     logout() {
-        this.userService.logout();
+        this.loginService.logout();
         //TODO: verificar si se deslogueo correctamente
         this.router.navigate(['/home']);
     }
 
     ngOnInit() {
-        this.subscription = this.userService.authNavStatus$.subscribe(status => this.status = status);
+        this.subscription = this.loginService.authNavStatus$.subscribe(status => this.status = status);
     }
 
     ngOnDestroy() {

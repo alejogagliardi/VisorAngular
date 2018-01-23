@@ -4,7 +4,8 @@ import { AppModuleShared } from './app.shared.module';
 import { AppComponent } from './components/app/app.component';
 import { HttpModule, XHRBackend } from '@angular/http';
 import { AuthenticateXHRBackend } from './providers/authenticate-xhr-backend';
-import { ConfigService } from './utils/config.service';
+import { ConfigService } from './services/config.service';
+import { LoginService } from './services/login.service';
 import { UserService } from './services/user.service';
 import { AuthGuard } from './auth.guard';
 
@@ -16,6 +17,7 @@ import { AuthGuard } from './auth.guard';
     ],
     providers: [
         ConfigService,
+        LoginService,
         UserService,
         AuthGuard,
         { provide: XHRBackend, useClass: AuthenticateXHRBackend },

@@ -15,6 +15,9 @@ import { RegistrationFormComponent } from './components/account/registration-for
 import { LoginFormComponent } from './components/account/login-form/login-form.component';
 import { AuthGuard } from './auth.guard';
 
+/* User Components */
+import { UserListComponent } from './components/account/users/user-list/user-list.component';
+
 
 
 @NgModule({
@@ -25,7 +28,8 @@ import { AuthGuard } from './auth.guard';
         FetchDataComponent,
         HomeComponent,
         LoginFormComponent,
-        RegistrationFormComponent
+        RegistrationFormComponent,
+        UserListComponent
     ],
     imports: [
         CommonModule,
@@ -36,6 +40,7 @@ import { AuthGuard } from './auth.guard';
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'users', component: UserListComponent },
             { path: 'login', component: LoginFormComponent },
             { path: 'register', component: RegistrationFormComponent, canActivate: [AuthGuard] },
             { path: '**', redirectTo: 'home' }

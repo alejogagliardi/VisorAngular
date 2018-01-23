@@ -32,13 +32,14 @@
     <None Remove="ClientApp\app\directives\email.validator.directive.ts" />
     <None Remove="ClientApp\app\directives\focus.directive.ts" />
     <None Remove="ClientApp\app\models\credentials.interface.ts" />
+    <None Remove="ClientApp\app\models\role.interface.ts" />
+    <None Remove="ClientApp\app\models\user.interface.ts" />
     <None Remove="ClientApp\app\models\user.registration.interface.ts" />
     <None Remove="ClientApp\app\components\account\login-form\login-form.component.ts" />
     <None Remove="ClientApp\app\components\account\registration-form\registration-form.component.ts" />
     <None Remove="ClientApp\app\providers\authenticate-xhr-backend.ts" />
     <None Remove="ClientApp\app\services\base.service.ts" />
-    <None Remove="ClientApp\app\services\user.service.ts" />
-    <None Remove="ClientApp\app\utils\config.service.ts" />
+    <None Remove="ClientApp\app\services\login.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,13 +47,15 @@
     <TypeScriptCompile Include="ClientApp\app\directives\email.validator.directive.ts" />
     <TypeScriptCompile Include="ClientApp\app\directives\focus.directive.ts" />
     <TypeScriptCompile Include="ClientApp\app\models\credentials.interface.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\role.interface.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\user.interface.ts" />
     <TypeScriptCompile Include="ClientApp\app\models\user.registration.interface.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\account\login-form\login-form.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\account\registration-form\registration-form.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\providers\authenticate-xhr-backend.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\base.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\services\user.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\utils\config.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\login.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\services\config.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

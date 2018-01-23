@@ -3,7 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { Credentials } from '../../../models/credentials.interface';
-import { UserService } from '../../../services/user.service';
+import { LoginService } from '../../../services/login.service';
 
 @Component({
     selector: 'app-login-form',
@@ -21,7 +21,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
     submitted: boolean = false;
     credentials: Credentials = { email: '', password: '' };
 
-    constructor(private userService: UserService, private router: Router, private activatedRoute: ActivatedRoute) { }
+    constructor(private loginService: LoginService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
     ngOnInit() {
 
@@ -43,7 +43,7 @@ export class LoginFormComponent implements OnInit, OnDestroy {
         this.isRequesting = true;
         this.errors = '';
         if (valid) {
-            this.userService.login(value.email, value.password)
+            this.loginService.login(value.email, value.password)
                 .finally(() => this.isRequesting = false)
                 .subscribe(
                 result => {
